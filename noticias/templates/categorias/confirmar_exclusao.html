@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Confirmar Exclusão de Categoria</h2>
+
+<!-- Desafio Complementar -->
+<div class="alert alert-warning">
+    <strong>Aviso:</strong> Esta categoria pode estar vinculada a notícias. Caso existam notícias vinculadas, a exclusão não será permitida.
+</div>
+
+<p>Tem certeza de que deseja excluir a categoria <strong>"{{ categoria.nome }}"</strong>?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a href="javascript:history.back()" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

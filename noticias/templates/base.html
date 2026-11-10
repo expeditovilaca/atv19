@@ -1,0 +1,39 @@
+<!-- noticias/templates/base.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal Escolar de Notícias</title>
+    <style>
+        .alert { padding: 10px; margin-bottom: 15px; border-radius: 4px; }
+        .alert-success { background-color: #d4edda; color: #155724; }
+        .alert-error { background-color: #f8d7da; color: #721c24; }
+        .alert-warning { background-color: #fff3cd; color: #856404; }
+        .errorlist { color: red; }
+        .btn { padding: 6px 12px; text-decoration: none; display: inline-block; cursor: pointer; }
+        .btn-danger { background-color: #dc3545; color: white; border: none; }
+        .btn-secondary { background-color: #6c757d; color: white; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portal Escolar de Notícias</h1>
+        <hr>
+    </header>
+
+    <!-- Exibição global de mensagens do Django -->
+    {% if messages %}
+      <div class="messages-container">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
